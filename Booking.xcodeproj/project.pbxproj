@@ -6,8 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FCD018452F5F8E3300685952 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD018442F5F8E3300685952 /* GoogleService-Info.plist */; };
+		FCD018482F5F916B00685952 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FCD018472F5F916B00685952 /* FirebaseAuth */; };
+		FCD0184A2F5F916B00685952 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FCD018492F5F916B00685952 /* FirebaseFirestore */; };
+		FCD0184C2F5F916B00685952 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FCD0184B2F5F916B00685952 /* FirebaseMessaging */; };
+		FCD0184E2F5F916B00685952 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FCD0184D2F5F916B00685952 /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		FCD018332F5F8D4D00685952 /* Booking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCD018442F5F8E3300685952 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +32,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCD0184C2F5F916B00685952 /* FirebaseMessaging in Frameworks */,
+				FCD0184E2F5F916B00685952 /* FirebaseStorage in Frameworks */,
+				FCD018482F5F916B00685952 /* FirebaseAuth in Frameworks */,
+				FCD0184A2F5F916B00685952 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -34,6 +47,7 @@
 			children = (
 				FCD018352F5F8D4D00685952 /* Booking */,
 				FCD018342F5F8D4D00685952 /* Products */,
+				FCD018442F5F8E3300685952 /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +79,10 @@
 			);
 			name = Booking;
 			packageProductDependencies = (
+				FCD018472F5F916B00685952 /* FirebaseAuth */,
+				FCD018492F5F916B00685952 /* FirebaseFirestore */,
+				FCD0184B2F5F916B00685952 /* FirebaseMessaging */,
+				FCD0184D2F5F916B00685952 /* FirebaseStorage */,
 			);
 			productName = Booking;
 			productReference = FCD018332F5F8D4D00685952 /* Booking.app */;
@@ -94,6 +112,9 @@
 			);
 			mainGroup = FCD0182A2F5F8D4D00685952;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FCD018462F5F916B00685952 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FCD018342F5F8D4D00685952 /* Products */;
 			projectDirPath = "";
@@ -109,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCD018452F5F8E3300685952 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +282,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -289,6 +312,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,6 +348,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FCD018462F5F916B00685952 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FCD018472F5F916B00685952 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCD018462F5F916B00685952 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FCD018492F5F916B00685952 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCD018462F5F916B00685952 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		FCD0184B2F5F916B00685952 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCD018462F5F916B00685952 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		FCD0184D2F5F916B00685952 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCD018462F5F916B00685952 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FCD0182B2F5F8D4D00685952 /* Project object */;
 }
