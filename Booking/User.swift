@@ -21,7 +21,7 @@ struct Booking: Codable,Identifiable {
     var date: Date
     var duration: Int
     var roomId: UUID
-    var status: String
+    var status: Status
 }
 
 struct Room: Codable,Identifiable {
@@ -35,12 +35,12 @@ struct slot: Codable,Identifiable {
     let id: UUID
     var userId: UUID
     var date: Date
-    var status: String
+    var status: Status
     var roomId: UUID
     
 }
 
-enum status: String, Codable {
+enum Status: String, Codable {
     case booked = "booked"
     case cancelled = "cancelled"
     case available = "available"
