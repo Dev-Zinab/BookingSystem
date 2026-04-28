@@ -1,19 +1,9 @@
-
-
-import Foundation
-
-struct User: Codable,Identifiable {
-    let id: String
-    var name: String
-    let email: String
-    let password: String
-}
-struct Admin: Codable,Identifiable {
-    let id: String
-    var name: String
-    var email: String
-    var password: String
-}
+//
+//  Booking.swift
+//  Booking
+//
+//  Created by Zinab Zooba on 28/04/2026.
+//
 
 struct Booking: Codable,Identifiable {
     let id: String
