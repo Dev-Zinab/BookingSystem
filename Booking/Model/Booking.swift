@@ -4,7 +4,7 @@
 //
 //  Created by Zinab Zooba on 28/04/2026.
 //
-
+import Foundation
 struct Booking: Codable,Identifiable {
     let id: String
     var userId: String
