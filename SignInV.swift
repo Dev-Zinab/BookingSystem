@@ -56,7 +56,7 @@ struct SignInV: View {
                         }
                     }
                     HStack{
-                        Text("Or Continoe as")
+                        Text("Or Continue as")
                         Button (" Guest"){
                             
                         }
