@@ -8,38 +8,40 @@
 import SwiftUI
 
 struct SignInV: View {
+    @State private var email: String = ""
+    @State private var password: String = ""
     var body: some View {
         
-                NavigationStack{
-                
-                ZStack{
-                    Color.yellow.edgesIgnoringSafeArea(.all)
+        NavigationStack{
+            
+            ZStack{
+                Color.yellow.edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     
-                        Text("Sign in")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.white)
-                            .padding(.bottom, 80)
-
+                    Text("Sign in")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white)
+                        .padding(.bottom, 80)
                     
-                    TextField("Email", text: .constant(""))
+                    
+                    TextField("Email", text: $email)
                         .frame(width: 300, height: 50)
                         .padding()
                         .background(Color.white.opacity(0.40))
                         .cornerRadius(10)
-
-                    TextField("Password", text: .constant(""))
+                    
+                    TextField("Password",text: $password)
                         .frame(width: 300, height: 50)
                         .padding()
                         .background(Color.white.opacity(0.40))
                         .cornerRadius(10)
-
+                    
                     Button(action: {}) {
                         Text("Sign in")
-
-                           
+                        
+                        
                     }.buttonStyle(BorderedButtonStyle())
                     
                         .foregroundColor(.blue)
@@ -60,15 +62,15 @@ struct SignInV: View {
                         Button (" Guest"){
                             
                         }
-
+                        
                     }
                     
                 }
-                }
-                }
-            
             }
+        }
         
+    }
+    
 }
 
 #Preview {

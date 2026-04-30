@@ -12,15 +12,11 @@
 		FCD0184A2F5F916B00685952 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FCD018492F5F916B00685952 /* FirebaseFirestore */; };
 		FCD0184C2F5F916B00685952 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FCD0184B2F5F916B00685952 /* FirebaseMessaging */; };
 		FCD0184E2F5F916B00685952 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FCD0184D2F5F916B00685952 /* FirebaseStorage */; };
-		FCD0187C2FA2208D00685952 /* SignUpV.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD0187B2FA2205E00685952 /* SignUpV.swift */; };
-		FCD0187E2FA2928700685952 /* SignInV.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD0187D2FA2927A00685952 /* SignInV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FCD018332F5F8D4D00685952 /* Booking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCD018442F5F8E3300685952 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		FCD0187B2FA2205E00685952 /* SignUpV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpV.swift; sourceTree = "<group>"; };
-		FCD0187D2FA2927A00685952 /* SignInV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,8 +48,6 @@
 				FCD018352F5F8D4D00685952 /* Booking */,
 				FCD018342F5F8D4D00685952 /* Products */,
 				FCD018442F5F8E3300685952 /* GoogleService-Info.plist */,
-				FCD0187B2FA2205E00685952 /* SignUpV.swift */,
-				FCD0187D2FA2927A00685952 /* SignInV.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,8 +141,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCD0187E2FA2928700685952 /* SignInV.swift in Sources */,
-				FCD0187C2FA2208D00685952 /* SignUpV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
