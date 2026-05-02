@@ -32,7 +32,7 @@ struct SignInV: View {
                         .background(Color.white.opacity(0.40))
                         .cornerRadius(10)
                     
-                    TextField("Password",text: $password)
+                    SecureField("Password",text: $password)
                         .frame(width: 300, height: 50)
                         .padding()
                         .background(Color.white.opacity(0.40))
