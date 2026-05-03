@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct SignInV: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @Bindable var viewModel = AuthViewModel()
     var body: some View {
         
         NavigationStack{
@@ -26,13 +25,13 @@ struct SignInV: View {
                         .padding(.bottom, 80)
                     
                     
-                    TextField("Email", text: $email)
+                    TextField("Email", text: $viewModel.email)
                         .frame(width: 300, height: 50)
                         .padding()
                         .background(Color.white.opacity(0.40))
                         .cornerRadius(10)
                     
-                    SecureField("Password",text: $password)
+                    SecureField("Password",text: $viewModel.password)
                         .frame(width: 300, height: 50)
                         .padding()
                         .background(Color.white.opacity(0.40))

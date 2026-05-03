@@ -14,15 +14,31 @@
 		FCD0184E2F5F916B00685952 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FCD0184D2F5F916B00685952 /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FCD018CC2FA7C83B00685952 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCD0182B2F5F8D4D00685952 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCD018322F5F8D4D00685952;
+			remoteInfo = Booking;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		FCD018332F5F8D4D00685952 /* Booking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCD018442F5F8E3300685952 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FCD018C82FA7C83B00685952 /* BookingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FCD018352F5F8D4D00685952 /* Booking */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Booking;
+			sourceTree = "<group>";
+		};
+		FCD018C92FA7C83B00685952 /* BookingTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BookingTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -39,6 +55,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCD018C52FA7C83B00685952 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -46,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				FCD018352F5F8D4D00685952 /* Booking */,
+				FCD018C92FA7C83B00685952 /* BookingTests */,
 				FCD018342F5F8D4D00685952 /* Products */,
 				FCD018442F5F8E3300685952 /* GoogleService-Info.plist */,
 			);
@@ -55,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				FCD018332F5F8D4D00685952 /* Booking.app */,
+				FCD018C82FA7C83B00685952 /* BookingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,6 +113,29 @@
 			productReference = FCD018332F5F8D4D00685952 /* Booking.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FCD018C72FA7C83B00685952 /* BookingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCD018CE2FA7C83B00685952 /* Build configuration list for PBXNativeTarget "BookingTests" */;
+			buildPhases = (
+				FCD018C42FA7C83B00685952 /* Sources */,
+				FCD018C52FA7C83B00685952 /* Frameworks */,
+				FCD018C62FA7C83B00685952 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCD018CD2FA7C83B00685952 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				FCD018C92FA7C83B00685952 /* BookingTests */,
+			);
+			name = BookingTests;
+			packageProductDependencies = (
+			);
+			productName = BookingTests;
+			productReference = FCD018C82FA7C83B00685952 /* BookingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -100,6 +148,10 @@
 				TargetAttributes = {
 					FCD018322F5F8D4D00685952 = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					FCD018C72FA7C83B00685952 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = FCD018322F5F8D4D00685952;
 					};
 				};
 			};
@@ -121,6 +173,7 @@
 			projectRoot = "";
 			targets = (
 				FCD018322F5F8D4D00685952 /* Booking */,
+				FCD018C72FA7C83B00685952 /* BookingTests */,
 			);
 		};
 /* End PBXProject section */
@@ -134,6 +187,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCD018C62FA7C83B00685952 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -144,7 +204,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCD018C42FA7C83B00685952 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCD018CD2FA7C83B00685952 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCD018322F5F8D4D00685952 /* Booking */;
+			targetProxy = FCD018CC2FA7C83B00685952 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FCD0183F2F5F8D4F00685952 /* Debug */ = {
@@ -326,6 +401,42 @@
 			};
 			name = Release;
 		};
+		FCD018CF2FA7C83B00685952 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K72UH5F2K5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Zinab.BookingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Booking.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Booking";
+			};
+			name = Debug;
+		};
+		FCD018D02FA7C83B00685952 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K72UH5F2K5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Zinab.BookingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Booking.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Booking";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -343,6 +454,15 @@
 			buildConfigurations = (
 				FCD018422F5F8D4F00685952 /* Debug */,
 				FCD018432F5F8D4F00685952 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCD018CE2FA7C83B00685952 /* Build configuration list for PBXNativeTarget "BookingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCD018CF2FA7C83B00685952 /* Debug */,
+				FCD018D02FA7C83B00685952 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

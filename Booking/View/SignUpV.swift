@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct SignUpV: View {
-    @State private var email: String = ""
-    @State private var name: String = ""
-    @State private var password: String = ""
-    @State private var confirmPassword: String = ""
-    
+    @Bindable var viewModel = AuthViewModel()
     var body: some View {
         NavigationStack{
             
@@ -29,30 +25,36 @@ struct SignUpV: View {
                         .padding(.bottom, 80)
                     
                     
-                    TextField("Email", text: $email)
+                    TextField("Email", text: $viewModel.email)
                         .frame(width: 300, height: 50)
                         .padding()
                         .background(Color.white.opacity(0.40))
                         .cornerRadius(10)
-                    TextField("Name", text: $name)
-                        .frame(width: 300, height: 50)
-                        .padding()
-                        .background(Color.white.opacity(0.40))
-                        .cornerRadius(10)
-                    
-                    SecureField("Password", text: $password)
+                    TextField("Name", text: $viewModel.name)
                         .frame(width: 300, height: 50)
                         .padding()
                         .background(Color.white.opacity(0.40))
                         .cornerRadius(10)
                     
-                    SecureField("Confirm Password", text: $confirmPassword)
+                    SecureField("Password", text: $viewModel.password)
                         .frame(width: 300, height: 50)
                         .padding()
                         .background(Color.white.opacity(0.40))
                         .cornerRadius(10)
                     
-                    Button(action: {}) {
+                    SecureField("Confirm Password", text: $viewModel.confirmPassword)
+                        .frame(width: 300, height: 50)
+                        .padding()
+                        .background(Color.white.opacity(0.40))
+                        .cornerRadius(10)
+                    if let error = viewModel.activeError {
+                        Text(error.errorMessage)
+                            .foregroundColor(.red)
+                    }
+                    
+                    Button(action: {
+                        viewModel.signUp()
+                    }) {
                         Text("Sign Up")
                         
                         
