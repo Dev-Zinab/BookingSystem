@@ -37,7 +37,12 @@ struct SignInV: View {
                         .background(Color.white.opacity(0.40))
                         .cornerRadius(10)
                     
-                    Button(action: {}) {
+                    Button(action: {
+                        Task {
+                            await viewModel.signIn()
+                        }
+                        
+                    }) {
                         Text("Sign in")
                         
                         

@@ -44,6 +44,26 @@
             
             XCTAssertFalse(result, "الباسورد لا يحتوي أرقاماً، يجب أن تفشل الدالة")
         }
+        
+        // 1. اختبار إيميل ينتهي بـ .sa (هل سيقبله؟)
+        func test_EmailValidation_WithSaudiDomain_ShouldReturnTrue() {
+            let viewModel = AuthViewModel()
+            let saudiEmail = "zainab@example.sa" // هنا .sa وليس .com
+            
+            let result = viewModel.isValidEmail(saudiEmail)
+            
+            XCTAssertTrue(result, "يجب أن يقبل النطاق .sa")
+        }
+
+        // 2. اختبار إيميل لا يحتوي على @ (هل سيرفضه؟)
+        func test_EmailValidation_MissingAtSign_ShouldReturnFalse() {
+            let viewModel = AuthViewModel()
+            let badEmail = "zainab.gmail.com"
+            
+            let result = viewModel.isValidEmail(badEmail)
+            
+            XCTAssertFalse(result, "يجب أن يرفض الإيميل لأنه لا يحتوي على @")
+        }
     }
 
 

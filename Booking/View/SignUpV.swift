@@ -53,7 +53,12 @@ struct SignUpV: View {
                     }
                     
                     Button(action: {
-                        viewModel.signUp()
+
+                        Task {
+                                await viewModel.signUp()
+                            }
+
+
                     }) {
                         Text("Sign Up")
                         
@@ -76,8 +81,9 @@ struct SignUpV: View {
                     HStack {
                         Text("Or continue as")
                         Button("Guest") {
-                            // Action هنا
-                        }
+                            Task{
+                                await viewModel.continueAsGuest()
+                            }                        }
                     }
                 }
             }
