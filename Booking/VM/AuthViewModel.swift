@@ -50,19 +50,25 @@ import Observation
                     print("حدث خطأ: \(error.localizedDescription)")
                 }
             }
+    
     func signIn() async {
+        // 1. التحقق من الحقول فارغة
         guard !email.isEmpty, !password.isEmpty else {
             self.activeError = .emptyField
             return
         }
 
         do {
-            // استدعاء دالة تسجيل الدخول من الـ Service
+            // 2. محاولة تسجيل الدخول
             try await authService.signIn(email: email, password: password)
             print("تم تسجيل الدخول بنجاح!")
         } catch {
+            // 3. هنا الخطوة الأهم: إيصال الخطأ للواجهة
             print("خطأ في تسجيل الدخول: \(error.localizedDescription)")
-            // هنا يمكنكِ لاحقاً إضافة نوع خطأ خاص بـ تسجيل الدخول
+            
+            // يمكنكِ لاحقاً إضافة enum خاص لأخطاء Firebase
+            // مؤقتاً، يمكننا التعامل مع الخطأ
+            self.activeError = .invalidPassword // أو إنشاء حالة خطأ جديدة لـ SignIn
         }
     }
     

@@ -64,7 +64,9 @@ struct SignInV: View {
                     HStack{
                         Text("Or Continue as")
                         Button (" Guest"){
-                            
+                            Task {
+                                await viewModel.continueAsGuest()
+                            }
                         }
                         
                     }

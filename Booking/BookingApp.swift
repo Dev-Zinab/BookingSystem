@@ -25,10 +25,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct BookingApp: App {
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+    @State private var session = SessionManager()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if session .isAuthenticated {
+                ContentView()
+
+            }
+            else {
+                SignInV()
+            }
         }
     }
 }
