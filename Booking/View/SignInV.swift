@@ -38,6 +38,7 @@ struct SignInV: View {
                         .cornerRadius(10)
                     
                     Button(action: {
+                        
                         Task {
                             await viewModel.signIn()
                         }
@@ -53,22 +54,23 @@ struct SignInV: View {
                         .cornerRadius(10)
                         .padding()
                     
-                    HStack{
-                        
-                        
-                        Text ("Don't have an account?")
-                        NavigationLink("Sign up"){
-                            SignUpV( )
+
+                    HStack {
+                        // If the user doesn't have an account, direct them to sign up
+                        Text("Don't have an account?")
+                        NavigationLink("Sign up") {
+                            // 1. Navigate to Create Account screen
+                            SignUpV()
                         }
                     }
-                    HStack{
+                    HStack {
                         Text("Or Continue as")
-                        Button (" Guest"){
+                        Button(" Guest") {
+                            // 2. Continue as a guest (no account needed)
                             Task {
                                 await viewModel.continueAsGuest()
                             }
                         }
-                        
                     }
                     
                 }

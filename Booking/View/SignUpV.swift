@@ -72,9 +72,12 @@ struct SignUpV: View {
                     
                     HStack{
                         
-                        
+                        // If the user  have an account, direct them to sign in
+
                         Text ("Already have an account?")
                         NavigationLink(  "Sign in"){
+                            // 1. Navigate to sign in  screen
+
                             SignInV()
                         }
                     }
