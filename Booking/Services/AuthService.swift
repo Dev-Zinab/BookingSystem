@@ -20,17 +20,17 @@ struct AuthService {
     ///   - name: The display name to be set for the user.
     /// - Throws: An error if account creation or profile update fails.
     /// - Returns: The newly created `FirebaseAuth.User` object.
-    func signUp(email: String, password: String, name: String) async throws -> FirebaseAuth.User {
+    func signUp(email: String, password: String) async throws -> UserSession {
         // 1. Create the account
         let result = try await Auth.auth().createUser(withEmail: email, password: password)
         let user = result.user
         
         // 2. Update the display name
-        let changeRequest = user.createProfileChangeRequest()
-        changeRequest.displayName = name
-        try await changeRequest.commitChanges()
+//        let changeRequest = user.createProfileChangeRequest()
+//        changeRequest.displayName = name
+//        try await changeRequest.commitChanges()
         
-        return user
+        return UserSession(uid: user.uid, email: email)
     }
     
     /// Authenticates a user with an email and password.
@@ -65,4 +65,9 @@ struct AuthService {
     var currentUser: FirebaseAuth.User? {
         return Auth.auth().currentUser
     }
+}
+
+struct UserSession {
+    let uid: String
+    let email: String
 }

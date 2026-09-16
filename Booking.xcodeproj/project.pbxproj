@@ -12,6 +12,7 @@
 		FCD0184A2F5F916B00685952 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FCD018492F5F916B00685952 /* FirebaseFirestore */; };
 		FCD0184C2F5F916B00685952 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FCD0184B2F5F916B00685952 /* FirebaseMessaging */; };
 		FCD0184E2F5F916B00685952 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FCD0184D2F5F916B00685952 /* FirebaseStorage */; };
+		FCD018E12FBB3F1B00685952 /* FirebaseAnalyticsIdentitySupport in Frameworks */ = {isa = PBXBuildFile; productRef = FCD018E02FBB3F1B00685952 /* FirebaseAnalyticsIdentitySupport */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCD0184C2F5F916B00685952 /* FirebaseMessaging in Frameworks */,
+				FCD018E12FBB3F1B00685952 /* FirebaseAnalyticsIdentitySupport in Frameworks */,
 				FCD0184E2F5F916B00685952 /* FirebaseStorage in Frameworks */,
 				FCD018482F5F916B00685952 /* FirebaseAuth in Frameworks */,
 				FCD0184A2F5F916B00685952 /* FirebaseFirestore in Frameworks */,
@@ -72,6 +74,7 @@
 				FCD018C92FA7C83B00685952 /* BookingTests */,
 				FCD018342F5F8D4D00685952 /* Products */,
 				FCD018442F5F8E3300685952 /* GoogleService-Info.plist */,
+				FCD018DC2FABEC4100685952 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +85,13 @@
 				FCD018C82FA7C83B00685952 /* BookingTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FCD018DC2FABEC4100685952 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +118,7 @@
 				FCD018492F5F916B00685952 /* FirebaseFirestore */,
 				FCD0184B2F5F916B00685952 /* FirebaseMessaging */,
 				FCD0184D2F5F916B00685952 /* FirebaseStorage */,
+				FCD018E02FBB3F1B00685952 /* FirebaseAnalyticsIdentitySupport */,
 			);
 			productName = Booking;
 			productReference = FCD018332F5F8D4D00685952 /* Booking.app */;
@@ -160,6 +171,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ar,
 				Base,
 			);
 			mainGroup = FCD0182A2F5F8D4D00685952;
@@ -500,6 +512,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FCD018462F5F916B00685952 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		FCD018E02FBB3F1B00685952 /* FirebaseAnalyticsIdentitySupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCD018462F5F916B00685952 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsIdentitySupport;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

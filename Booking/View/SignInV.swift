@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct SignInV: View {
-    @Bindable var viewModel = AuthViewModel()
+    @Environment(AuthViewModel.self) private var authViewModel
+    @Environment(UserViewModel.self) private var userViewModel
     var body: some View {
-        
+        @Bindable var authVM = authViewModel
+        @Bindable var userVM = userViewModel
+
         NavigationStack{
             
             ZStack{
@@ -24,35 +27,55 @@ struct SignInV: View {
                         .foregroundStyle(.white)
                         .padding(.bottom, 80)
                     
-                    
-                    TextField("Email", text: $viewModel.email)
-                        .frame(width: 300, height: 50)
-                        .padding()
-                        .background(Color.white.opacity(0.40))
-                        .cornerRadius(10)
-                    
-                    SecureField("Password",text: $viewModel.password)
-                        .frame(width: 300, height: 50)
-                        .padding()
-                        .background(Color.white.opacity(0.40))
-                        .cornerRadius(10)
-                    
+                    HStack{
+                        Image(systemName: "envelope")
+                            .foregroundColor(.gray)
+                            .font(.title)
+
+                        TextField("Email", text: $authVM.email)
+                    }
+                    .frame(width: 300, height: 50)
+                    .padding()
+                    .background(Color.white.opacity(0.40))
+                    .cornerRadius(10)
+
+                    HStack{
+                        Image(systemName: "lock")
+                            .foregroundColor(.gray)
+                            .font(.title)
+                        
+                        SecureField("Password",text: $authVM.password)
+                        
+                    }
+                    .frame(width: 300, height: 50)
+                    .padding()
+                    .background(Color.white.opacity(0.40))
+                    .cornerRadius(10)
+
                     Button(action: {
                         
                         Task {
-                            await viewModel.signIn()
+                            await authVM.signIn()
+                            if let session = authVM.userSession  {
+                                await  userVM.fetchCurrentUser((session.uid))
+                            }
                         }
                         
                     }) {
-                        Text("Sign in")
-                        
-                        
+                        if authVM.isLoading {
+                            ProgressView()
+                        }
+                        else {
+                            Text("Sign in")
+                            
+                        }
                     }.buttonStyle(BorderedButtonStyle())
                     
                         .foregroundColor(.blue)
                         .background(.white)
                         .cornerRadius(10)
                         .padding()
+                        .disabled(authVM.isLoading)
                     
 
                     HStack {
@@ -68,13 +91,16 @@ struct SignInV: View {
                         Button(" Guest") {
                             // 2. Continue as a guest (no account needed)
                             Task {
-                                await viewModel.continueAsGuest()
+                                await authVM.continueAsGuest()
                             }
                         }
                     }
                     
                 }
             }
+        }.onAppear(){
+            authViewModel.resetFields()
+            userViewModel.resetFields()
         }
         
     }

@@ -22,20 +22,33 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct BookingApp: App {
+    @State private var authViewModel: AuthViewModel
+    @State private var userViewModel: UserViewModel
+    /// الـ Session manager لتتبع حالة تسجيل الدخول
+    @State private var session: SessionManager
     
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
-    /// The session manager tracking the user's authentication state.
-    @State private var session = SessionManager()
+    init() {
+        // 1. تشغيل الفايربيز أول شيء على الإطلاق قبل بناء أي متغير
+        FirebaseApp.configure()
+        
+        // 2. الآن نقوم بتهيئة الـ SessionManager بأمان بعد أن أصبح الفايربيز جاهزاً
+        _session = State(initialValue: SessionManager())
+        _authViewModel = State(initialValue: AuthViewModel())
+                _userViewModel = State(initialValue: UserViewModel())
+    }
     
     var body: some Scene {
         WindowGroup {
-            // Determine the root view based on the user's current authentication status.
+            // تحديد الـ Root View بناءً على حالة المستخدم
             if session.isAuthenticated {
-                ContentView()
+                MainTabView()
+
             } else {
                 SignInV()
+
             }
         }
+        .environment(authViewModel)
+        .environment(userViewModel)
     }
 }
