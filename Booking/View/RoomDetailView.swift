@@ -10,7 +10,7 @@ import SwiftUI
 struct RoomDetailView: View {
     let room: Room
     @State private var isfavorite: Bool = false
-
+    @Binding var path: NavigationPath
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
@@ -124,7 +124,7 @@ struct RoomDetailView: View {
         // 5. شريط زر "احجز الآن" مائل للأسفل ومثبت (Sticky Bottom Bar)
         .safeAreaInset(edge: .bottom) {
             VStack {
-                NavigationLink(destination: RoomBookingView(room: room)) {
+                NavigationLink(destination: RoomBookingView(room: room, path: $path)) {
                     
                     Text("احجز الآن")
                         .font(.headline)
@@ -146,5 +146,8 @@ struct RoomDetailView: View {
 }
 
 #Preview {
-    RoomDetailView(room: Room.sampleData[0])
+    RoomDetailView(
+        room: Room.sampleData[0],
+        path: .constant(NavigationPath())
+    )
 }

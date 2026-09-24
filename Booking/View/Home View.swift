@@ -11,6 +11,8 @@ import SwiftUI
 struct HomeView: View {
     @Environment(AuthViewModel.self) private var authViewModel
     @Environment(UserViewModel.self) private var userViewModel
+    // 1. تعريف المسار التفاعلي في الشاشة الرئيسية
+    @Binding  var path : NavigationPath
     var body: some View {
         @Bindable var authVM = authViewModel
         @Bindable var userVM = userViewModel
@@ -58,8 +60,7 @@ struct HomeView: View {
                         .bold()
                         .padding(.bottom, -8)
                 ForEach (Room.sampleData) { room in
-               NavigationLink(destination:
-                                RoomDetailView(room: room))
+                    NavigationLink(value: room)
                     {
                    RoomCard(room: room)
                     }
@@ -85,7 +86,10 @@ struct HomeView: View {
                 
                 
                 
+            }            .navigationDestination(for: Room.self) { room in
+                RoomDetailView(room: room, path: $path)
             }
+
         }
         
          
@@ -93,14 +97,16 @@ struct HomeView: View {
 
 
 #Preview {
-    // 1. ننشئ نسخ افتراضية خاصة بالـ Preview فقط لكي يقرأ منها البيانات
     let previewAuthVM = AuthViewModel()
-    let previewUserVM = UserViewModel()
     
-    // يمكنكِ حتى وضع اسم تجريبي ليظهر في الـ Preview فوراً وتتأكدي أنه يعمل
-    previewUserVM.name = "زينب"
+    // نجهز الكائن ونعدل خصائصه داخل closure مغلقة تُرجع الكائن جاهزاً
+    let previewUserVM = {
+        let vm = UserViewModel()
+        vm.name = "زينب"
+        return vm
+    }()
     
-    return HomeView()
+    HomeView(path: .constant(NavigationPath()))
         .environment(previewAuthVM)
         .environment(previewUserVM)
 }

@@ -16,7 +16,7 @@ struct Booking: Codable,Identifiable {
 
 
 
-struct Room: Codable,Identifiable {
+struct Room: Codable,Identifiable,Hashable {
     let id: String
     var imageName: String
     var roomType: RoomType

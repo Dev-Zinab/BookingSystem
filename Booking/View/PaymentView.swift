@@ -17,6 +17,9 @@ struct PaymentView: View {
     @State private var expiryDate = ""
     @State private var cvv = ""
     @State private var cardHolderName = ""
+    // 1. حالة للتحكم بعرض شاشة النجاح
+    @State private var showSuccessView = false
+    @Binding var path: NavigationPath
     
     let room: Room
     let numberOfNight: Int
@@ -137,7 +140,10 @@ struct PaymentView: View {
             .disabled(isButtonDisabled)
             .padding(.horizontal)
             .padding(.bottom, 8)
-        }
+        }        .fullScreenCover(isPresented: $showSuccessView) {
+            BookingSuccessView(path: $path)
+    }
+
     }
 
     private var isButtonDisabled: Bool {
@@ -146,9 +152,10 @@ struct PaymentView: View {
 
     private func handlePayment() {
         // تنفيذ عملية الدفع هنا
-    }
+        
+        showSuccessView = true    }
 }
 
 #Preview {
-    PaymentView(room: Room.sampleData[0], numberOfNight: 4)
+    PaymentView(path: .constant(NavigationPath()), room: Room.sampleData[0], numberOfNight: 4)
 }

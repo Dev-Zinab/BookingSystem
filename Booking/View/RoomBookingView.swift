@@ -12,9 +12,13 @@ struct RoomBookingView: View
 {
 
     @State private var viewModel : BookingViewModel
+    @Binding var path: NavigationPath
     
-    init(room: Room) {
-            _viewModel = State(initialValue: BookingViewModel(room: room))
+    init(room: Room, path: Binding<NavigationPath>) {
+            _viewModel = State(initialValue: BookingViewModel(room: room)
+            )
+        _path = path
+
         }
 
     @State private var days: [Date?] = []
@@ -197,7 +201,8 @@ struct RoomBookingView: View
                         room: viewModel.room,
                         checkInDate: checkIn,
                         checkOutDate: checkOut,
-                        numberOfNight: viewModel.numberOfNight
+                        numberOfNight: viewModel.numberOfNight,
+                        path: $path
                     )) {
                         Text("تأكيد الحجز")
                             .font(.headline)
@@ -264,5 +269,8 @@ extension Date {
 }
 
 #Preview {
-    RoomBookingView(room: Room(id: "1", imageName: "test", roomType: RoomType.deluxe, roomName: "test room", capacity: 3, price: 200.0))
+    RoomBookingView(
+        room: Room(id: "1", imageName: "test", roomType: RoomType.deluxe, roomName: "test room", capacity: 3, price: 200.0),
+        path: .constant(NavigationPath())
+    )
 }

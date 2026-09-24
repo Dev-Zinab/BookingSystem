@@ -8,6 +8,7 @@
 import SwiftUI
 
         struct MainTabView: View {
+            @State private var path = NavigationPath()
             var body: some View {
                 if #available(iOS 18.0, *) {
                     TabView {
@@ -15,8 +16,8 @@ import SwiftUI
                             
                         
                         Tab("Home", systemImage: "house") {
-                            NavigationStack {
-                                HomeView()
+                            NavigationStack(path: $path) {
+                                HomeView(path: $path)
                             }
                             
                         }
@@ -26,10 +27,10 @@ import SwiftUI
                     }
                 } else {
                     TabView {
-                        NavigationStack {
+                        NavigationStack (path: $path) {
                             
                        
-                        HomeView()
+                        HomeView(path: $path)
                             .tabItem {
                                 Label("Home", systemImage: "house")
                             }
